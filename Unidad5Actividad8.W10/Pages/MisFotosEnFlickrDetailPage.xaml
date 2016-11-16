@@ -61,6 +61,6 @@
     </was_controls:ShellControl.CommandBar>
     
     <Grid Background="{StaticResource AppBackground}">
-        <layouts:RelatedContentDetailLayout ViewModel="{x:Bind ViewModel}" />
+        <layouts:MultiColumnDetailLayout ViewModel="{x:Bind ViewModel}" />
     </Grid>
 </Page>

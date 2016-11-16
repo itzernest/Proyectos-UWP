@@ -12,7 +12,6 @@ using AppStudio.Uwp.Commands;
 using AppStudio.DataProviders;
 
 using AppStudio.DataProviders.Flickr;
-using AppStudio.DataProviders.Menu;
 using AppStudio.DataProviders.LocalStorage;
 using Unidad5Actividad8.Sections;
 
@@ -22,13 +21,11 @@ namespace Unidad5Actividad8.ViewModels
     public class MainViewModel : PageViewModelBase
     {
         public ListViewModel MisFotosEnFlickr { get; private set; }
-        public ListViewModel Comparte { get; private set; }
 
         public MainViewModel(int visibleItems) : base()
         {
             Title = "Unidad 5 Actividad 8";
             MisFotosEnFlickr = ViewModelFactory.NewList(new MisFotosEnFlickrSection(), visibleItems);
-            Comparte = ViewModelFactory.NewList(new ComparteSection());
 
             if (GetViewModels().Any(vm => !vm.HasLocalData))
             {
@@ -72,7 +69,6 @@ namespace Unidad5Actividad8.ViewModels
         private IEnumerable<ListViewModel> GetViewModels()
         {
             yield return MisFotosEnFlickr;
-            yield return Comparte;
         }
     }
 }

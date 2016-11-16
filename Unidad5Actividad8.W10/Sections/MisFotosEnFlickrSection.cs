@@ -58,8 +58,14 @@ namespace Unidad5Actividad8.Sections
 
                     LayoutBindings = (viewModel, item) =>
                     {
+						viewModel.Header = item.Title.ToSafeString();
                         viewModel.ImageUrl = ItemViewModel.LoadSafeUrl(item.ImageUrl.ToSafeString());
+
+						viewModel.GroupBy = item.Title.SafeType();
+
+						viewModel.OrderBy = item.Title;
                     },
+					OrderType = OrderType.Ascending,
                     DetailNavigation = (item) =>
                     {
 						return NavInfo.FromPage<Pages.MisFotosEnFlickrDetailPage>(true);
@@ -75,7 +81,7 @@ namespace Unidad5Actividad8.Sections
                 var bindings = new List<Action<ItemViewModel, FlickrSchema>>();
                 bindings.Add((viewModel, item) =>
                 {
-                    viewModel.PageTitle = item.Title.ToSafeString();
+                    viewModel.PageTitle = "Comparte usando el menú derecho";
                     viewModel.Title = "";
                     viewModel.Description = item.Summary.ToSafeString();
                     viewModel.ImageUrl = ItemViewModel.LoadSafeUrl(item.ImageUrl.ToSafeString());
